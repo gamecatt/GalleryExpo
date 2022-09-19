@@ -1,38 +1,19 @@
-import { StyleSheet, SafeAreaView, FlatList } from 'react-native';
-import React, { PureComponent } from 'react';
-import { Posts } from './Posts';
-import { PhotoItem } from './photoItem';
+import { SafeAreaView, FlatList } from "react-native";
+import React, { Component } from "react";
+import { Posts } from "./data/Posts";
+import { PhotoItem } from "./PhotoItem";
+import stylesGallery from "./data/stylesGallery";
 
-class GalleryScroll extends PureComponent {
+export default class GalleryScroll extends Component {
   render() {
     return (
-      <SafeAreaView style={{}}>
+      <SafeAreaView style={[{ top: 92 }, stylesGallery.GalleryContainer]}>
         <FlatList
           data={Posts}
           renderItem={({ item }) => <PhotoItem props={item} />}
           keyExtractor={(item) => item.key}
         />
       </SafeAreaView>
-    )
+    );
   }
 }
-
-export const styles = StyleSheet.create({
-  GalleryContainer: {
-    flex: 1,
-    flexWrap: 'wrap',
-    flexDirection: 'row',
-
-  },
-
-  GalleryItem: {
-    flex: 1,
-    borderWidth: 1,
-    borderRadius: 5,
-    borderColor: '#BB86FC',
-    color: '#000000',
-    fontFamily: 'NunitoSans_400Regular'
-  },
-})
-
-export default GalleryScroll
