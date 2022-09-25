@@ -11,7 +11,7 @@ export default class GalleryScroll extends Component {
         <FlatList
           data={Posts}
           renderItem={({ item }) => <PhotoItem props={item} />}
-          keyExtractor={(item) => item.key}
+          keyExtractor={(item) => item.id}
         />
       </SafeAreaView>
     );
